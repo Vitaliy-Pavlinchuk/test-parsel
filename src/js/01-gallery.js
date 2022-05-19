@@ -93,11 +93,7 @@ const fetchPosts = () => {
 
 }
 
-// fetchPostsBtn.addEventListener('click', () => {
-//     fetchPosts()
-//         .then((post) => renderPosts(post))
-//         .catch((error) => console.log(error))
-// })
+
 
 fetchPostsBtn.addEventListener('click', () => {
     fetchPosts()
@@ -119,3 +115,57 @@ function renderPosts(posts) {
     .join("");
   userList.innerHTML = markup;
 }
+
+//////////////////////////Розбор 11 занятия/////////////
+const BASE_URL = 'https://jsonplaceholder.typicode.com';
+
+const posts = 1
+
+
+
+
+
+function addBook(book) {
+ const options = {
+  method: 'POST',
+  body: JSON.stringify(book),
+  headers: {
+   "Content-Type": "application/json",
+  }
+  } 
+return fetch(`https://jsonplaceholder.typicode.com/posts`, options).then(res => res.json())
+  
+  }
+
+
+
+
+addBook({
+  name: 'yamamoto',
+  auctor: 'mango',
+  body: 'Crud is avesomo',
+}).then(renderBook)
+addBook({
+  name: 'yamamoto',
+  auctor: 'mango',
+  body: 'Crud is avesomo',
+}).then(renderBook);
+addBook({
+  name: 'yamamoto',
+  auctor: 'mango',
+  body: 'Crud is avesomo',
+}).then(renderBook);
+
+function renderBook(book) {
+  console.log(book);
+  
+}
+
+
+// function fechbox(page) {
+//   return fetch(`${BASE_URL}/posts?_limit=${page}`).then(res => res.json());
+// }
+
+// fechbox(10)
+
+
